@@ -15,7 +15,7 @@ const removeItem: CartEndpoint['handlers']['removeItem'] = async ({
   }
 
   const result = await config.storeApiFetch<{ data: any } | null>(
-    `/v3/carts/${cartId}/items/${itemId}?include=line_items.physical_items.options`,
+    `/v3/carts/${cartId}/items/${itemId}?include=line_items.physical_items.options,line_items.digital_items.options`,
     { method: 'DELETE' }
   )
   const data = result?.data ?? null
