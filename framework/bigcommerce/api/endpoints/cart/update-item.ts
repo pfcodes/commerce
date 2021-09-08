@@ -16,7 +16,7 @@ const updateItem: CartEndpoint['handlers']['updateItem'] = async ({
   }
 
   const { data } = await config.storeApiFetch(
-    `/v3/carts/${cartId}/items/${itemId}?include=line_items.physical_items.options`,
+    `/v3/carts/${cartId}/items/${itemId}?include=line_items.physical_items.options,line_items.digital_items.options`,
     {
       method: 'PUT',
       body: JSON.stringify({
